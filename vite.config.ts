@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import ssr from "vite-plugin-ssr/plugin";
+// import ssr from "vite-plugin-ssr/plugin";
+import ssr from 'vike/plugin'
+import vercel from 'vite-plugin-vercel'
 import { vavite } from "vavite";
 
 export default defineConfig({
@@ -20,6 +22,7 @@ export default defineConfig({
 			serveClientAssetsInDev: true,
 		}),
 		react(),
-		ssr({ disableAutoFullBuild: true }),
+		ssr({ prerender: true }),
+		vercel()
 	],
 });
